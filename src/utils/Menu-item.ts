@@ -9,6 +9,8 @@ export type MenuItem = {
     iconColor: string;
 };
 
+
+
 export const menuBar: MenuItem[] = [
     {
         id: 1,
