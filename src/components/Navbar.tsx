@@ -1,9 +1,18 @@
-import { faCube } from '@fortawesome/free-solid-svg-icons/faCube'
+import { faCube, faRightFromBracket } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { menuBar } from '../utils/Menu-item'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useNavigate } from 'react-router-dom'
+import { useAuth } from '../context/AuthContext'
 
 const Navbar = () => {
+    const { user, logout } = useAuth()
+    const navigate = useNavigate()
+
+    const handleLogout = () => {
+        logout()
+        navigate('/login', { replace: true })
+    }
+
     return (
         <div className='h-full w-full flex flex-col'>
             {/* Logo */}
@@ -67,8 +76,28 @@ const Navbar = () => {
             {/* Spacer */}
             <div className='flex-1' />
 
-            {/* Footer */}
-            <div className='mx-4 mb-5 mt-4 p-3 rounded-xl bg-linear-to-br from-indigo-50 to-purple-50 border border-indigo-100'>
+            {/* User + logout */}
+            {user && (
+                <div className='mx-4 mb-3 p-3 rounded-xl bg-gray-50 border border-gray-100 flex items-center gap-2'>
+                    <div className='w-7 h-7 rounded-lg bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center flex-shrink-0'>
+                        <span className='text-white text-xs font-bold'>{user.name[0]}</span>
+                    </div>
+                    <div className='flex-1 min-w-0'>
+                        <p className='text-xs font-semibold text-gray-700 truncate'>{user.name}</p>
+                        <p className='text-[10px] text-gray-400 truncate'>{user.email}</p>
+                    </div>
+                    <button
+                        onClick={handleLogout}
+                        title="Sign out"
+                        className='text-gray-400 hover:text-red-400 transition-colors'
+                    >
+                        <FontAwesomeIcon icon={faRightFromBracket} className='text-sm' />
+                    </button>
+                </div>
+            )}
+
+            {/* Footer tip */}
+            <div className='mx-4 mb-5 p-3 rounded-xl bg-linear-to-br from-indigo-50 to-purple-50 border border-indigo-100'>
                 <p className='text-[11px] font-semibold text-indigo-700'>Pro tip</p>
                 <p className='text-[10px] text-indigo-400 mt-0.5 leading-relaxed'>Build habits daily for best results.</p>
             </div>

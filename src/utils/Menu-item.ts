@@ -1,5 +1,5 @@
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import { faUser, faTableColumns, faTornado } from '@fortawesome/free-solid-svg-icons';
+import { faTableColumns, faTornado } from '@fortawesome/free-solid-svg-icons';
 
 export type MenuItem = {
     id: number;
