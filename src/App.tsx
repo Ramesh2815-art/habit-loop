@@ -8,6 +8,7 @@ import Settings from './pages/Settings'
 import HabitDetail from './pages/HabitDetail'
 import Todo from './pages/Todo'
 import Users from './pages/Users'
+import Posts from './pages/Posts'
 
 const App = () => {
   return (
@@ -40,6 +41,8 @@ const App = () => {
         <Route path="todo" element={<Todo />} />
 
         <Route path="users" element={<Users />} />
+
+        <Route path="posts" element={<Posts />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/dashboard" replace />} />

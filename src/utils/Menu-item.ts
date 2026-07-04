@@ -1,5 +1,5 @@
 import type { IconDefinition } from '@fortawesome/fontawesome-svg-core'
-import { faTableColumns, faTornado, faUserGroup } from '@fortawesome/free-solid-svg-icons';
+import { faNewspaper, faTableColumns, faTornado, faUserGroup } from '@fortawesome/free-solid-svg-icons';
 
 export type MenuItem = {
     id: number;
@@ -32,5 +32,12 @@ export const menuBar: MenuItem[] = [
         icon: faUserGroup,
         path: '/users',
         iconColor: '#FB6340'
+    },
+    {
+        id: 4,
+        label: 'Posts',
+        icon: faNewspaper,
+        path: '/posts',
+        iconColor: '#2DCE89'
     },
 ]
