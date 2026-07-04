@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard'
 import Settings from './pages/Settings'
 import HabitDetail from './pages/HabitDetail'
 import Todo from './pages/Todo'
+import Users from './pages/Users'
 
 const App = () => {
   return (
@@ -37,6 +38,8 @@ const App = () => {
         <Route path="habits/:habitId" element={<HabitDetail />} />
 
         <Route path="todo" element={<Todo />} />
+
+        <Route path="users" element={<Users />} />
       </Route>
 
       <Route path="*" element={<Navigate to="/dashboard" replace />} />
